@@ -1,4 +1,4 @@
-import { evaluateRPN } from "../../utils/util";
+import { evaluateRPN } from '../../utils/util';
 
 describe('evaluateRPN', () => {
     it('should evaluate simple RPN expressions', () => {
@@ -13,7 +13,7 @@ describe('evaluateRPN', () => {
       expect(evaluateRPN('5 1 2 + 4 * + 3 -')).toEqual(14);
     });
 
-    it('Should handle a multiple prompt input', () => {
+    it('Should handle a multiple prompt inputs', () => {
         expect(evaluateRPN('1')).toEqual(1);
         expect(evaluateRPN('2')).toEqual(2);
         expect(evaluateRPN('+')).toEqual(3);
@@ -21,7 +21,11 @@ describe('evaluateRPN', () => {
     });
   
     it('should throw an error for invalid input', () => {
-      expect(() => evaluateRPN('1 2 ++')).toThrow('Invalid operation: "++"');
-      expect(() => evaluateRPN('3 a +')).toThrow('Invalid operation: "a"');
+      expect(evaluateRPN('1 2 ++')).toEqual('Invalid operation: "++"');
+      expect(evaluateRPN('3 a +')).toEqual('Invalid operation: "a"');
+    });
+
+    it('should throw error if dividing by 0', () => {
+      expect(evaluateRPN('22 0 /')).toEqual('Cannot divide by 0');
     });
   });
