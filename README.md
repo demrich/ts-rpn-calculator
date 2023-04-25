@@ -68,3 +68,5 @@ Future Improvements
 -------------------
 
 -   Support for more operators, such as `^` (exponentiation) and `%` (modulus)
+-   Currently extra spaces (' ') entered will return an invalid operator. Future improvements could be added to prevent error messages and continue to evaluate the operation
+-   An introductory title could be added when started
