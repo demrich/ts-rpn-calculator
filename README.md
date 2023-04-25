@@ -50,8 +50,6 @@ To exit the calculator, press either `Ctrl+C` or `q` in your terminal.
 Implementation Details
 ----------------------
 
-The RPN calculator is implemented in TypeScript, using Node.js's `readline` module to read input from the console.
-
 The `evaluateRPN` function takes an RPN expression as a string and evaluates it using a stack data structure. The function splits the input string into an array of tokens, and iterates over the tokens, pushing numbers onto the stack and performing arithmetic operations on the top two elements of the stack when an operator is encountered.
 
 If the operation is invalid, the function logs an error message. 
@@ -63,7 +61,6 @@ Error Messages
 The RPN calculator logs the following error messages when an error occurs:
 
 -   `"Invalid operator: ${token}"`: when an invalid operator is encountered in the input expression
--   `"Result is NaN"`: when a returned result is a non-number
 -   `"Cannot divide by 0"`: when expression is trying to divide by 0
 -   `"Invalid inputs"`: when too many operators are presented
 
