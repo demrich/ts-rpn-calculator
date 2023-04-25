@@ -4,7 +4,7 @@ Documentation for RPN Calculator
 Introduction
 ------------
 
-This is a simple RPN (Reverse Polish Notation) calculator implemented in JavaScript. It uses Node.js's `readline` module to read input from the console and evaluate expressions in RPN.
+This is a simple RPN (Reverse Polish Notation) calculator implemented in TypeScript. It uses Node.js's `readline` module to read input from the console and evaluate expressions in RPN.
 
 Installation
 ------------
