@@ -4,13 +4,13 @@ Documentation for RPN Calculator
 Introduction
 ------------
 
-This is a simple RPN (Reverse Polish Notation) calculator implemented in TypeScript. It uses Node.js's `readline` module to read input from the console and evaluate expressions in RPN.
+This is a simple RPN (Reverse Polish Notation) calculator implemented in TypeScript. It uses Node.js's `readline` module to read input from the console and evaluate expressions in RPN. I chose `readline` for its ability to read data from a `Readable` stream one line at a time. `readline` can also be included into a web socket interface such as socket.io or a TCP client (if applicable). For now it is architectured to be used locally with a single user. 
 
 Installation
 ------------
 
 1.  Clone or download the repository
-2.  Install Node.js if not already installed on your system
+2.  Install Node.js and NPM if not already installed on your system
 3.  Navigate to the project directory in your terminal
 4.  Run `npm install` to install the project dependencies
 
@@ -45,12 +45,13 @@ If an invalid operator is encountered, the calculator will log an error message 
 
 If the expression is invalid or incomplete, the calculator will log an error message and stop evaluating the expression.
 
-To exit the calculator, press either `Ctrl+C` or `q` in your terminal.
+To exit the calculator, press `Ctrl+c`, `Ctrl+d`, or `q` in your terminal.
 
 Implementation Details
 ----------------------
 
 The `evaluateRPN` function takes an RPN expression as a string and evaluates it using a stack data structure. The function splits the input string into an array of tokens, and iterates over the tokens, pushing numbers onto the stack and performing arithmetic operations on the top two elements of the stack when an operator is encountered.
+I chose this algorithm as it is simple, efficient, and can evaluate RPN expressions of arbitrary length and complexity. Functions such as `isOperator` and `performOperation` are broken down and passed into `evaluateRPN` to better understand the underlying process. `Operators` are their own seperate `const` for ease of adding future operations if applicable.
 
 If the operation is invalid, the function logs an error message. 
 If the expression is valid, the function returns the result of the evaluation.
@@ -70,4 +71,4 @@ Future Improvements
 -   Support for more operators, such as `^` (exponentiation) and `%` (modulus)
 -   Currently extra spaces (' ') entered will return an invalid operator. Future improvements could be added to prevent error messages and continue to evaluate the operation
 -   An introductory title could be added when started
--   further tests with jest `spyOn` to spy on functions being called in `app.ts`
+-   Further tests in `app.ts` by mocking `readline` commands, as well as create individual tests for non-exported functions in `util.ts`. For now this tests multiple executions with expected results. 
