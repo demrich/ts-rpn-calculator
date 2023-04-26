@@ -6,6 +6,8 @@ process.stdin.setEncoding('utf8'); // Set encoding to UTF-8 to receive character
 
 const rl = createInterface({ input: process.stdin, output: process.stdout });
 
+export const stack: number[] = [];
+
 console.clear();
 
 rl.prompt();

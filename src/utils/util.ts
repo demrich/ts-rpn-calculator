@@ -1,6 +1,5 @@
 import { Operator } from './types';
-
-const stack: number[] = [];
+import { stack } from '../app';
 
 const operators: Operator[] = [
   {
